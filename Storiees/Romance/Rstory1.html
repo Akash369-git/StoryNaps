@@ -120,22 +120,35 @@
                             spark that ignited something deep within her.</p>
                         <p>The young man rose to his feet, offering her a shy yet disarmingly warm smile as he brushed a
                             stray cherry blossom petal from his sleeve.</p>
-                            <div class="more-content">
-                        <p>"The view is truly stunning, isn't it?" he said, his voice rich and inviting like finely aged
-                            whiskey. "Though I could say the same about the company."</p>
-                        <p>Abby felt her cheeks flush ever so slightly as her heart fluttered in her chest. "It is," she
-                            managed to reply, her own smile blossoming across her face like the very harbingers of
-                            spring that surrounded them.</p>
-                        <p>They fell into an easy conversation after that, sharing their mutual appreciation for the
-                            ethereal beauty of the cherry blossoms and the tranquil sanctuary of the park...</p>
-                        </div>
+                        <div class="more-content">
+                            <p>"The view is truly stunning, isn't it?" he said, his voice rich and inviting like finely
+                                aged
+                                whiskey. "Though I could say the same about the company."</p>
+                            <p>Abby felt her cheeks flush ever so slightly as her heart fluttered in her chest. "It is,"
+                                she
+                                managed to reply, her own smile blossoming across her face like the very harbingers of
+                                spring that surrounded them.</p>
+                            <p>They fell into an easy conversation after that, sharing their mutual appreciation for the
+                                ethereal beauty of the cherry blossoms and the tranquil sanctuary of the park...</p>
                             <div class="btn-box">
-                            <a href="#" class="btn-1 read-more-btn">
-                                Read More
-                            </a>
-                            <a href="#" class="btn-2 share-btn">
-                                Share
-                            </a>
+                                <a href="#" class="btn-1 read-more-btn">
+                                    Read More
+                                </a>
+                                <a href="#" class="btn-2 share-btn">
+                                    <span class="share-icon"></span>
+                                    Share
+                                </a>
+                            </div>
+                            <div class="story-interaction">
+                                <button class="like-btn">
+                                    👍 <span class="like-count">0</span>
+                                </button>
+                                <button class="comment-btn">💬 Comment</button>
+                            </div>
+                            <textarea id="comment-input" placeholder="Leave a comment..."
+                                style="display: none;"></textarea>
+                            <button class="submit-comment-btn" style="display: none;">Submit</button>
+                            <div class="comments-list"></div>
                         </div>
                     </div>
                 </div>
@@ -299,37 +312,37 @@
     <!-- end  footer section -->
 
 
-
+    <script src="../../js/LinkOther.js"></script>
     <script src="../../js/jquery-3.4.1.min.js"></script>
     <script src="../../js/bootstrap.js"></script>
     <script src="../../js/custom.js"></script>
     <script src="../../js/readMore.js"></script>
 
- <!-- Sharing story section -->
- <script>
-    const shareBtn = document.querySelector('.share-btn');
-    
-    shareBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        const storyUrl = window.location.href; // Get the current URL
-        const storyTitle = document.title; // Get the page title
-    
-        // Create the share text
-        const shareText = `Check out this amazing story: ${storyTitle}\n\n${storyUrl}`;
-    
-        // Open the share dialog
-        if (navigator.share) {
-            navigator.share({
-                title: storyTitle,
-                text: shareText,
-                url: storyUrl
-            })
-            .catch(console.error);
-        } else {
-            // Fallback for browsers that don't support the Web Share API
-            window.alert(`Please copy and share the following:\n\n${shareText}`);
-        }
-    });
+    <!-- Sharing story section -->
+    <script>
+        const shareBtn = document.querySelector('.share-btn');
+
+        shareBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            const storyUrl = window.location.href; // Get the current URL
+            const storyTitle = document.title; // Get the page title
+
+            // Create the share text
+            const shareText = `Check out this amazing story: ${storyTitle}\n\n${storyUrl}`;
+
+            // Open the share dialog
+            if (navigator.share) {
+                navigator.share({
+                    title: storyTitle,
+                    text: shareText,
+                    url: storyUrl
+                })
+                    .catch(console.error);
+            } else {
+                // Fallback for browsers that don't support the Web Share API
+                window.alert(`Please copy and share the following:\n\n${shareText}`);
+            }
+        });
     </script>
 
 </body>

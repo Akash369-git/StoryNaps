@@ -22,7 +22,7 @@
     <link href="../../css/style.css" rel="stylesheet" />
     <!-- responsive style -->
     <link href="../../css/responsive.css" rel="stylesheet" />
-    
+
 </head>
 
 <body class="sub_page">
@@ -134,12 +134,23 @@
                                 Read More
                             </a>
                             <a href="#" class="btn-2 share-btn">
+                                <span class="share-icon"></span>
                                 Share
                             </a>
                         </div>
+                        <div class="story-interaction">
+                            <button class="like-btn">
+                                👍 <span class="like-count">0</span>
+                            </button>
+                            <button class="comment-btn">💬 Comment</button>
+                        </div>
+                        <textarea id="comment-input" placeholder="Leave a comment..." style="display: none;"></textarea>
+                        <button class="submit-comment-btn" style="display: none;">Submit</button>
+                        <div class="comments-list"></div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
@@ -299,7 +310,7 @@
     <!-- end  footer section -->
 
 
-
+    <script src="../../js/LinkOther.js"></script>
     <script src="../../js/jquery-3.4.1.min.js"></script>
     <script src="../../js/bootstrap.js"></script>
     <script src="../../js/custom.js"></script>

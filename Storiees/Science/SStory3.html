@@ -22,7 +22,7 @@
   <link href="../../css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="../../css/responsive.css" rel="stylesheet" />
- 
+
 </head>
 
 <body class="sub_page">
@@ -112,7 +112,7 @@
               the very fabric of existence seemed to shift, stretch, twist. Nara's heart leapt into her throat as she
               glimpsed a vista of bizarre alien skyscrapers through a shimmering rift, their towering spires scraping an
               burnt-orange sky.<br><br>
-              <div class="more-content">
+            <div class="more-content">
 
               Then, with a deafening boom, she was violently hurled forward - or was it backward? Gasping for breath in
               pitch darkness, Nara fumbled for a light. By its dim glow, her eyes widened in shock - she appeared to be
@@ -123,17 +123,28 @@
               through the shadows, inhuman footsteps drawing near. Nara froze, scarcely able to process the mind-bending
               truth - she was tens of thousands of years away from home with absolutely no way back.<br><br></p>
             </div>
-              <div class="btn-box">
+            <div class="btn-box">
               <a href="#" class="btn-1 read-more-btn">
                 Read More
               </a>
               <a href="#" class="btn-2 share-btn">
+                <span class="share-icon"></span>
                 Share
               </a>
             </div>
+            <div class="story-interaction">
+              <button class="like-btn">
+                👍 <span class="like-count">0</span>
+              </button>
+              <button class="comment-btn">💬 Comment</button>
+            </div>
+            <textarea id="comment-input" placeholder="Leave a comment..." style="display: none;"></textarea>
+            <button class="submit-comment-btn" style="display: none;">Submit</button>
+            <div class="comments-list"></div>
           </div>
         </div>
       </div>
+    </div>
     </div>
   </section>
 
@@ -290,37 +301,37 @@
   <!-- end  footer section -->
 
 
-
+  <script src="../../js/LinkOther.js"></script>
   <script src="../../js/jquery-3.4.1.min.js"></script>
   <script src="../../js/bootstrap.js"></script>
   <script src="../../js/custom.js"></script>
   <script src="../../js/readMore.js"></script>
 
-   <!-- Sharing story section -->
- <script>
-  const shareBtn = document.querySelector('.share-btn');
-  
-  shareBtn.addEventListener('click', function(e) {
+  <!-- Sharing story section -->
+  <script>
+    const shareBtn = document.querySelector('.share-btn');
+
+    shareBtn.addEventListener('click', function (e) {
       e.preventDefault();
       const storyUrl = window.location.href; // Get the current URL
       const storyTitle = document.title; // Get the page title
-  
+
       // Create the share text
       const shareText = `Check out this amazing story: ${storyTitle}\n\n${storyUrl}`;
-  
+
       // Open the share dialog
       if (navigator.share) {
-          navigator.share({
-              title: storyTitle,
-              text: shareText,
-              url: storyUrl
-          })
+        navigator.share({
+          title: storyTitle,
+          text: shareText,
+          url: storyUrl
+        })
           .catch(console.error);
       } else {
-          // Fallback for browsers that don't support the Web Share API
-          window.alert(`Please copy and share the following:\n\n${shareText}`);
+        // Fallback for browsers that don't support the Web Share API
+        window.alert(`Please copy and share the following:\n\n${shareText}`);
       }
-  });
+    });
   </script>
 
 

@@ -13,7 +13,6 @@
   <meta name="author" content="" />
 
   <title>The Viking Warrior's Saga - StoryNaps</title>
-
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="../../css/bootstrap.css" />
 
@@ -109,31 +108,46 @@
               thousand hearth fires.</p>
             <p>"Odin's beard, what adventures await us beyond that horizon?" he murmured, his voice nearly carried away
               by the howling gale.</p>
-              <div class="more-content">
-            <p>At just 18 years old, Bjorn was embarking on his first raiding expedition with his father's Viking clan.
-              The thrill of adventure and the promise of riches had filled him with a mix of excitement and trepidation.
-              But deep down, he knew this was his chance to prove his worth as a warrior and secure his place among the
-              respected men of his village.</p>
-            <p>As the ship glided across the choppy waves, creaking and groaning with each swell, Bjorn's mind drifted
-              to the tales his grandfather had shared around the hearth fire – epic sagas of fierce battles, legendary
-              heroes, and the gods' divine favor.</p>
-            <p>"Will I join the ranks of those whose names are forever etched into the halls of Valhalla?" he wondered
-              aloud. "Or is a different fate woven for me by the Norns?"</p>
-            <p>After weeks of arduous travel, the longship finally reached the shores of a small, unsuspecting coastal
-              settlement. Bjorn gripped his battle-worn axe, its edge honed to a razor's gleam, his heart pounding like
-              the drums of war as the order was given to attack...</p>
+            <div class="more-content">
+              <p>At just 18 years old, Bjorn was embarking on his first raiding expedition with his father's Viking
+                clan.
+                The thrill of adventure and the promise of riches had filled him with a mix of excitement and
+                trepidation.
+                But deep down, he knew this was his chance to prove his worth as a warrior and secure his place among
+                the
+                respected men of his village.</p>
+              <p>As the ship glided across the choppy waves, creaking and groaning with each swell, Bjorn's mind drifted
+                to the tales his grandfather had shared around the hearth fire – epic sagas of fierce battles, legendary
+                heroes, and the gods' divine favor.</p>
+              <p>"Will I join the ranks of those whose names are forever etched into the halls of Valhalla?" he wondered
+                aloud. "Or is a different fate woven for me by the Norns?"</p>
+              <p>After weeks of arduous travel, the longship finally reached the shores of a small, unsuspecting coastal
+                settlement. Bjorn gripped his battle-worn axe, its edge honed to a razor's gleam, his heart pounding
+                like
+                the drums of war as the order was given to attack...</p>
             </div>
-              <div class="btn-box">
+            <div class="btn-box">
               <a href="#" class="btn-1 read-more-btn">
                 Read More
               </a>
               <a href="#" class="btn-2 share-btn">
+                <span class="share-icon"></span>
                 Share
               </a>
             </div>
+            <div class="story-interaction">
+              <button class="like-btn">
+                👍 <span class="like-count">0</span>
+              </button>
+              <button class="comment-btn">💬 Comment</button>
+            </div>
+            <textarea id="comment-input" placeholder="Leave a comment..." style="display: none;"></textarea>
+            <button class="submit-comment-btn" style="display: none;">Submit</button>
+            <div class="comments-list"></div>
           </div>
         </div>
       </div>
+    </div>
     </div>
   </section>
 
@@ -199,7 +213,7 @@
               </h5>
               <p>
                 Explore our vibrant community hubs, where writers and readers come together to share and celebrate the
-                art of storytelling. 
+                art of storytelling.
               </p>
             </div>
 
@@ -290,37 +304,39 @@
   <!-- end  footer section -->
 
 
-
+  <script src="../../js/LinkOther.js"></script> 
   <script src="../../js/jquery-3.4.1.min.js"></script>
   <script src="../../js/bootstrap.js"></script>
   <script src="../../js/custom.js"></script>
   <script src="../../js/readMore.js"></script>
+ 
 
   <!-- Sharing story section -->
- <script>
-  const shareBtn = document.querySelector('.share-btn');
-  
-  shareBtn.addEventListener('click', function(e) {
+  <script>
+    
+    const shareBtn = document.querySelector('.share-btn');
+
+    shareBtn.addEventListener('click', function (e) {
       e.preventDefault();
       const storyUrl = window.location.href; // Get the current URL
       const storyTitle = document.title; // Get the page title
-  
+
       // Create the share text
       const shareText = `Check out this amazing story: ${storyTitle}\n\n${storyUrl}`;
-  
+
       // Open the share dialog
       if (navigator.share) {
-          navigator.share({
-              title: storyTitle,
-              text: shareText,
-              url: storyUrl
-          })
+        navigator.share({
+          title: storyTitle,
+          text: shareText,
+          url: storyUrl
+        })
           .catch(console.error);
       } else {
-          // Fallback for browsers that don't support the Web Share API
-          window.alert(`Please copy and share the following:\n\n${shareText}`);
+        // Fallback for browsers that don't support the Web Share API
+        window.alert(`Please copy and share the following:\n\n${shareText}`);
       }
-  });
+    });
   </script>
 
 
