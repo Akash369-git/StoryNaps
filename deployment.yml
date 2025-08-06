@@ -1,28 +1,19 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: storynaps-Deployment
-  labels:
-    app: storynaps
-spec:
-  replicas: 3
-  selector:
-  matchLabels:
-    app: storynaps
-  template:
-    metadata:
-      labels:
-        app: storynaps
-    spec:
-      containers:
-      - name: storynaps-container
-        image: storynaps:v1
-        ports:
-          - containerPort: 80
-        resources:
-         requests:
-          memory: "128Mi"
-          cpu: "100m"
-         limits:
-          memory: "256Mi"
-          cpu: "200m"  
+trigger:
+- main  # Change this if you're using a different branch
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: UseDotNet@2    # Only for .NET, remove if you're using something else
+  inputs:
+    packageType: 'sdk'
+    version: '8.0.x'
+
+- script: echo "Building Storynaps App..."
+  displayName: 'Build App'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(Build.SourcesDirectory)'
+    artifactName: 'drop'
